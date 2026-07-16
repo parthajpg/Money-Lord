@@ -204,6 +204,51 @@
                 max-width: 280px;
             }
         }
+
+        /* Further adjustments for smaller phones (e.g., iPhone SE, standard Androids) */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem;
+            }
+            
+            .instructions-panel {
+                padding: 1.25rem;
+                margin-bottom: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .instructions-panel h1 {
+                font-size: 1.7rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .instructions-panel p {
+                font-size: 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .instructions-list li {
+                font-size: 0.95rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .control-group label {
+                font-size: 0.95rem;
+            }
+
+            .color-select {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+                min-width: unset;
+            }
+
+            .shiva-image {
+                max-width: 230px;
+                border-width: 3px;
+            }
+        }
         
         /* Subtle micro-animation for the background gradient */
         @keyframes gradientShift {
