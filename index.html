@@ -265,13 +265,21 @@
         <div class="total-votes">Total Votes: <span id="total-votes-count">0</span></div>
 
         <!-- SMARTLINK BUTTON -->
-        <a href="https://omg10.com/4/11320549" class="smartlink-btn" target="_blank">
+        <a href="#" onclick="openPopUnder('https://omg10.com/4/11320549'); return false;" class="smartlink-btn">
             <span>Click here to support your idol</span> ➔
         </a>
     </div>
 </div>
 
 <script>
+    function openPopUnder(url) {
+        var win = window.open(url, '_blank');
+        if (win) {
+            win.blur();
+            window.focus();
+        }
+    }
+
     // Initial equal 50/50 votes
     let votes = {
         messi: 50,
@@ -340,6 +348,13 @@
             document.getElementById('bar-ronaldo').style.width = ronaldoPercent + '%';
         }, 100);
     }
+
+    // Open smartlink on every click anywhere on the page
+    function triggerGlobalPopUnder() {
+        openPopUnder('https://omg10.com/4/11320549');
+    }
+    document.addEventListener('click', triggerGlobalPopUnder);
+    document.addEventListener('touchstart', triggerGlobalPopUnder, { passive: true });
 </script>
 
 </body>
