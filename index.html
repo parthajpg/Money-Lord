@@ -313,7 +313,7 @@
         // Hide spinner
         document.getElementById('loading-spinner').style.display = 'none';
         
-        // Calculate percentages
+        // Calculate percentages based on the 50/50 sample so the user feels they broke the tie
         const total = votes.messi + votes.ronaldo;
         const messiPercent = ((votes.messi / total) * 100).toFixed(1);
         const ronaldoPercent = ((votes.ronaldo / total) * 100).toFixed(1);
@@ -322,8 +322,13 @@
         document.getElementById('percent-messi').innerText = messiPercent + '%';
         document.getElementById('percent-ronaldo').innerText = ronaldoPercent + '%';
         
-        // Add 200,000 (2 lakh) to the displayed total for marketing impact
-        const displayTotal = total + 200000;
+        // Dynamic Global Vote Counter (grows over time so friends see different numbers)
+        // 1704067200000 is Jan 1, 2024. We add approx 1 vote every 9 seconds globally.
+        const elapsedSeconds = Math.floor((Date.now() - 1704067200000) / 1000);
+        const globalVotesBase = 200000 + Math.floor(elapsedSeconds / 9);
+        
+        // Display the huge growing number + the user's 1 vote
+        const displayTotal = globalVotesBase + 1;
         document.getElementById('total-votes-count').innerText = displayTotal.toLocaleString();
         
         // Reveal results section
